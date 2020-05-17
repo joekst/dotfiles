@@ -1,0 +1,12 @@
+[user]
+	email = jonas.ekstrand@cybercom.com
+	name = Jonas Ekstrand
+[alias]
+	st = status
+	br = branch
+	last = log -1 HEAD
+	la = log --pretty=format:\"%C(green)%h\\  %Cblue\\ [%cn]%Creset  %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ \" --decorate --date=relative
+[core]
+	editor = nvim
+  autocrlf = false
+
