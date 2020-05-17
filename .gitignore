@@ -1,0 +1,3 @@
+utils/.fzf
+libs/*
+!libs/libs.tar.gz
