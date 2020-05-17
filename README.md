@@ -5,15 +5,18 @@
 ## Neovim
 
 ### Plugins
-#### fzf and fzf.vim
-Awsome commandline fuzzy search/navigation tool. Nice nvim integration
+  * _fzf_ and _fzf.vim_
+  * _coc.vim_
+  
+### Themes
+  * _gruvbox_
+  * _onedark_
+  * _nord_  -- Not tested yet
 
 
-#### gruvbox
-Nice and popular colorscheme
 
 
-#### coc.vim
+
 
 
 #### nerdcommenter
