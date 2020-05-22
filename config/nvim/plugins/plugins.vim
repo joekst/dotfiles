@@ -13,7 +13,7 @@ call plug#begin('~/.config/nvim/libs')
   Plug 'joshdick/onedark.vim'
 
   " Code Completion
-  Plug 'neoclide/coc.nvim' 
+"  Plug 'neoclide/coc.nvim' 
   
   " Airline
   Plug 'vim-airline/vim-airline'
@@ -33,7 +33,7 @@ call plug#begin('~/.config/nvim/libs')
   Plug 'tpope/vim-fugitive'
 
   " Misc
-  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'yuki-ycino/fzf-preview.vim'
   

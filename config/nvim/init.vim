@@ -6,7 +6,7 @@ source $HOME/.config/nvim/core/nvim_key_mappings.vim
 
 
 " Plugin configuration
-source $HOME/.config/nvim/plug-cfg/coc.vim
+"source $HOME/.config/nvim/plug-cfg/coc.vim
 source $HOME/.config/nvim/plug-cfg/fzf.vim
 source $HOME/.config/nvim/plug-cfg/sneak.vim
 source $HOME/.config/nvim/plug-cfg/goyo.vim
