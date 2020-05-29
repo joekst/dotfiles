@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Set up 2 monitors for bspwm. Simple and naive script since I know the settings already
+
+# Check for conencted mnitor
+external_montor=$(xrandr --query | grep 'DP-4')
+if [[ $external_montor = *connected* ]]; then
+  xrandr --output DP-4 --primary --mode 2560x1440 --rotate normal --output DP-3 --mode 1920x1080 --rotate normal --right-of DP-4
+fi
+

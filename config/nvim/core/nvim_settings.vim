@@ -7,7 +7,7 @@ set hidden                              " Required to keep multiple buffers open
 set nowrap                              " Display long lines as just one line
 set encoding=utf-8                      " The encoding displayed 
 set pumheight=10                        " Makes popup menu smaller
-set fileencoding=utf-8                  " The encoding written to file
+"set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
 set iskeyword+=-                      	" treat dash separated words as a word text object"
@@ -38,6 +38,8 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set incsearch
 set shortmess+=                         " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time.
+set wildmode=longest,list,full
+set splitbelow splitright
 
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

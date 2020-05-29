@@ -1,4 +1,6 @@
 call plug#begin('~/.config/nvim/libs')
+  
+  Plug 'ryanoasis/vim-devicons'
 
   "Better Syntax Support
   Plug 'sheerun/vim-polyglot'
@@ -10,7 +12,8 @@ call plug#begin('~/.config/nvim/libs')
   Plug 'jiangmiao/auto-pairs'
 
   " Color theme
-  Plug 'joshdick/onedark.vim'
+"  Plug 'joshdick/onedark.vim'
+  Plug 'morhetz/gruvbox'
 
   " Code Completion
 "  Plug 'neoclide/coc.nvim' 

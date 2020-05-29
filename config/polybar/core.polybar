@@ -1,5 +1,8 @@
 ;:set syn=dosini
 
+[settings]
+screenchange-reload = true
+
 [global/wm]
 #margin-top = 8
 #margin-bottom = 8
@@ -27,27 +30,43 @@ black = #090909
 primary = #1f222d
 secondary = #FF6200
 alert = #fb4934
+ 
+[bar/bar_external]
+bottom = false
+top = true
+monitor = DP-4
+modules-left = bspwm 
+modules-right = date
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 0
+padding-left = 2 
+padding-right = 2 
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 [bar/bar]
+bottom = false
 monitor = DP-3
 top = true
 wm-restack = bspwm
 width = 100% 
 height = 27
-offset-x = 11
-offset-y = 11
+offset-x = 0
+offset-y = 0
 
 locale = en_US.UTF-8
 
 enable-ipc = true
 
-padding-left = 0
-padding-right = 0
+padding-left = 2 
+padding-right = 2 
 
 module-margin-right = 0
 module-margin-left = 0
 
-modules-right = keyboard separator separator volume separator date
+modules-right = network separator volume separator battery separator date
 ;modules-center = mpd 
 modules-left = bspwm
 
@@ -57,16 +76,17 @@ foreground = ${colors.foreground}
 underline-size = 0
 underline-color = ${colors.white}
 
-tray-detached = false
-tray-position = right 
-tray-offset-x = 0
-tray-offset-y = 0
-;tray-maxsize = 16
-tray-padding = 2
-tray-scale = 1.0
+;tray-detached = false
+;tray-position = right 
+;tray-offset-x = 0
+;tray-offset-y = 0
+;;tray-maxsize = 16
+;tray-padding = 2
+;tray-scale = 1.0
 
-font-0 = "monospace:size=8;2"
-font-1 = "FontAwesome:size=8;2"
+font-0 = "Hack Nerd Font:size=12;1"
+font-1 = "monospace:size=8;2"
+font-2 = "FontAwesome:size=10;1"
 
 
 [module/mpd]
@@ -95,6 +115,8 @@ font-1 = "FontAwesome:size=8;2"
 
 [module/bspwm]
 type = internal/bspwm
+pin-workspaces = true
+
 format = <label-state> <label-mode>
 
 label-focused = %index%
@@ -120,13 +142,15 @@ label-empty-padding = 2
 [module/date]
 type = internal/date
 #date-alt =   %A %H:%M 
-date = %{F#928374} %{F-} %H:%M
+;date = %{F#928374} %{F-} %H:%M
+date =  %H:%M
+
 interval = 5
 format-underline = ${colors.white}
 ;format-background = ${colors.black}
 format-foreground = ${colors.foreground}
 format-padding = 2
-
+;format =  <label>
 label-separator = |
 
 [module/volume]
@@ -137,12 +161,12 @@ format-volume-padding = 2
 
 format-volume-underline = ${colors.white}
 
-label-volume = %{F#928374} %{F-}%percentage:3%%
+label-volume = 墳 %{F-}%percentage:3%%
 #label-volume-foreground = ${color.white}
 
-label-muted =%{F#928374} %{F-}mute
+label-muted = ﱝ %{F-}%percentage:3%%
 format-muted = <label-muted>
-format-muted-underline = ${colors.white}
+format-muted-underline = ${colors.red}
 format-muted-padding = 2
 #label-muted-foreground = ${colors.gray}
 
@@ -154,7 +178,7 @@ type = internal/xkeyboard
 ; Available tags:
 ;   <label-layout> (default)
 ;   <label-indicator> (default)
-format = %{A1:~/.bin/toggkbl:}%{F#928374} %{F-}<label-layout> <label-indicator>%{A}
+format = %{A1:~/.bin/toggkbl:}%{F#928374}Key: %{F-}<label-layout> <label-indicator>%{A}
 format-spacing = 0
 format-underline = ${colors.white}
 
@@ -174,7 +198,7 @@ label-indicator-padding = 0
 
 [module/network]
 type = internal/network
-interface = wlp3s0
+interface = wlo1
 
 ; Seconds to sleep between updates
 ; Default: 1
@@ -203,11 +227,11 @@ format-disconnected-underline = ${colors.white}
 ; Available tags:
 ;   <label-connected> (default)
 ;   <ramp-signal>
-format-connected = %{F#928374} %{F-}<label-connected> 
+format-connected =  %{F-}<label-connected> 
 
 ; Available tags:
 ;   <label-disconnected> (default)
-format-disconnected = <label-disconnected>
+format-disconnected = 睊 <label-disconnected>
 
 ; Available tags:
 ;   <label-connected> (default)
@@ -224,12 +248,12 @@ format-packetloss = <animation-packetloss> <label-connected>
 ;   %downspeed% [wireless+wired]
 ;   %linkspeed% [wired]
 ; Default: %ifname% %local_ip%
-label-connected = %signal:3%%
+label-connected = %essid% %signal:3%%
 
 ; Available tokens:
 ;   %ifname%    [wireless+wired]
 ; Default: (none)
-label-disconnected = %{F#928374} %{F-}none
+label-disconnected = none
 
 ; Available tokens:
 ;   %ifname%    [wireless+wired]
@@ -252,5 +276,65 @@ type = custom/text
 content = |
 content-foreground = #4e4e4e
 
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+;full-at = 9
+;git config --global credential.helper store
+;6
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = "<ramp-capacity> <label-charging>"
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = "<ramp-capacity> <label-discharging>"
+
+label-charging = %percentage%% ﮣ
+label-discharging = %percentage%%
+
+format-discharging-foreground = ${colors.foreground}
+format-discharging-background = ${colors.red}
+
+format-charging-foreground = ${colors.foreground}
+format-charging-background = ${colors.background}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+  
 ; vim:ft=dosini
 
