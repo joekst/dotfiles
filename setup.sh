@@ -1,17 +1,33 @@
+#!/usr/bin/env bash
+
+# Setup script for my dotfiles
+
+# List of 'apps' to install using stow.
+
+base=(
+  git
+  bash
+  nvim
+)
 
 
-# Source this file to setup links
+# Command to install
+stowit() {
+  usr=$1
+  app=$2
+  stow -v -R -t ${usr} ${app}
+}
 
-# move to home
-cd ~
-pwd
 
-# setup links
+echo ""
+echo "Stowing apps for user ${whoami}"
 
-ln -s dotfiles/alias .alias
-ln -s dotfiles/dircolors .dircolors
-ln -s dotfiles/gitconfig .gitconfig
-ln -s dotfiles/tmux.conf .tmux.conf
-ln -s dotfiles/zshrc .zshrc
+for app in ${base[@]};do
+  if [[ ! "${whoami}" = *"root"* ]]; then
+    stowit "${HOME}" $app
+  fi
+done
 
+echo ""
+echo "Done!"
 
