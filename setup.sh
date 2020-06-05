@@ -8,6 +8,12 @@ base=(
   git
   bash
   nvim
+  alacritty
+  bspwm
+  sxhkd
+  polybar
+  rofi
+  fzf
 )
 
 

@@ -30,7 +30,8 @@ black = #090909
 primary = #1f222d
 secondary = #FF6200
 alert = #fb4934
- 
+
+# MODULES
 [bar/bar_external]
 bottom = false
 top = true
@@ -66,7 +67,7 @@ padding-right = 2
 module-margin-right = 0
 module-margin-left = 0
 
-modules-right = network separator volume separator battery separator date
+modules-right = network separator volume separator battery separator date separator power-menu
 ;modules-center = mpd 
 modules-left = bspwm
 
@@ -84,10 +85,17 @@ underline-color = ${colors.white}
 ;tray-padding = 2
 ;tray-scale = 1.0
 
-font-0 = "Hack Nerd Font:size=12;1"
+font-0 = "Hack Nerd Font:size=10;1"
 font-1 = "monospace:size=8;2"
 font-2 = "FontAwesome:size=10;1"
 
+[module/power-menu]
+type = custom/script
+exec = echo "  "
+interval = 1
+click-left = exec $HOME/.config/rofi/menus/power_menu
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
 
 [module/mpd]
 ;type = internal/mpd

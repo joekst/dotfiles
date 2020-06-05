@@ -46,4 +46,6 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-
+# Wallpaper
+#feh --bg-center ~/.local/share/wallpapers/black_and_blue_honeycomb.jpg
+feh --bg-center ~/.local/share/wallpapers/lava_honeycomb.jpg
