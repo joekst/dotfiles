@@ -23,19 +23,9 @@
   
 ## ToDo
 1. Linux distro
-* ~~Install Mint 19~~
-* ~~Install bspwm~~
-* Configure bspwm
-* Install Polybar for bspwm
-* ~~Install alacritty~~
-* Configure alacritty
 2. NVIM
 * Configure all plugins
 * Setup CoC and configure it so it works
 3. NVIM Plugins to test
 * ranger
-
-
-## tmux
- When using bspwm the need for this is less.
 

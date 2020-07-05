@@ -11,6 +11,8 @@ call plug#begin('~/.config/nvim/libs')
   " Auto pairs for '(' '[' '{' 
   Plug 'jiangmiao/auto-pairs'
 
+  Plug 'tpope/vim-surround'
+
   " Color theme
 "  Plug 'joshdick/onedark.vim'
   Plug 'morhetz/gruvbox'
@@ -40,8 +42,6 @@ call plug#begin('~/.config/nvim/libs')
   Plug 'junegunn/fzf.vim'
   Plug 'yuki-ycino/fzf-preview.vim'
   
-  Plug 'jiangmiao/auto-pairs'
-
 
   Plug 'justinmk/vim-sneak'
 
@@ -52,7 +52,7 @@ call plug#begin('~/.config/nvim/libs')
   Plug 'preservim/nerdcommenter'
 
   " Experimental  
-  Plug 'vimwiki/vimwiki'
-
+  "Plug 'vimwiki/vimwiki'
+  "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
   
