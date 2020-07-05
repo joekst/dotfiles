@@ -1,25 +1,32 @@
-" let g:coc_global_extensions = [
-"   \ 'coc-snippets',
-"   \ 'coc-actions',
-"   \ 'coc-emmet',
-"   \ 'coc-pairs',
-"   \ 'coc-tsserver',
-"   \ 'coc-floaterm',
-"   \ 'coc-html',
-"   \ 'coc-css',
-"   \ 'coc-cssmodules',
-"   \ 'coc-yaml',
-"   \ 'coc-python',
-"   \ 'coc-explorer',
-"   \ 'coc-svg',
-"   \ 'coc-prettier',
-"   \ 'coc-vimlsp',
-"   \ 'coc-flutter',
-"   \ 'coc-xml',
-"   \ 'coc-yank',
-"   \ 'coc-json',
-"   \ 'coc-vimtex',
-"   \ ]
+ let g:coc_global_extensions = [
+   \ 'coc-snippets',
+   \ 'coc-actions',
+   \ 'coc-emmet',
+   \ 'coc-pairs',
+   \ 'coc-tsserver',
+   \ 'coc-floaterm',
+   \ 'coc-html',
+   \ 'coc-css',
+   \ 'coc-cssmodules',
+   \ 'coc-yaml',
+   \ 'coc-python',
+   \ 'coc-explorer',
+   \ 'coc-svg',
+   \ 'coc-prettier',
+   \ 'coc-vimlsp',
+   \ 'coc-flutter',
+   \ 'coc-xml',
+   \ 'coc-yank',
+   \ 'coc-json',
+   \ 'coc-vimtex',
+   \ ]
+
+
+" Key-binds for Coc-Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>

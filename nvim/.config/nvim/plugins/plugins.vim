@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/libs')
   Plug 'morhetz/gruvbox'
 
   " Code Completion
-"  Plug 'neoclide/coc.nvim' 
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} 
   
   " Airline
   Plug 'vim-airline/vim-airline'
@@ -52,7 +52,8 @@ call plug#begin('~/.config/nvim/libs')
   Plug 'preservim/nerdcommenter'
 
   " Experimental  
-  Plug 'vimwiki/vimwiki'
+"  Plug 'vimwiki/vimwiki'
+  Plug 'SirVer/ultisnips'
 
 call plug#end()
   

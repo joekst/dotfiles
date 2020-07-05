@@ -1,0 +1,62 @@
+snippet rc
+import React, { Component } from 'react'
+
+class ${1:Class Name} extends Component {
+
+  constructor() {
+    super()
+  }
+
+  render() {
+    return (
+      <div>
+				$0
+      </div>
+    )
+  }
+}
+
+export default ${1:Class Name}
+endsnippet
+
+snippet rce
+import React, { Component } from 'react'
+
+export class ${1:Class Name} extends Component {
+
+  render() {
+    return (
+      <div>
+				$0
+      </div>
+    )
+  }
+}
+
+export default ${1:Class Name}
+endsnippet
+
+snippet rconst
+constructor(props) {
+	super(props)
+
+	this.state = {
+		$0
+	}
+}
+endsnippet
+
+snippet rfce
+import React from 'react'
+
+function FunctionClick() {
+	return (
+		<div>
+			$0
+		</div>
+	)
+}
+	
+export default FunctionClick
+endsnippet
+
